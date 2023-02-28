@@ -10,7 +10,8 @@ function updatePrices(list, date) {
   const listnew = JSON.parse(JSON.stringify(list));
   for (let valor in listnew) {
     if (listnew[valor].fechaCreacion === date) {
-      listnew[valor].precio = listnew[valor].precio * 0.1;
+      listnew[valor].precio =
+        Math.round(listnew[valor].precio * 100 * 0.1) / 100;
     }
   }
   console.log(list, listnew);
